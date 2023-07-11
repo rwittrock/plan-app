@@ -1,4 +1,6 @@
 npm install express
 
 npm i -D nodemon
-npm nodemon index.js
+nodemon index.js
+
+https://codeshack.io/basic-login-system-nodejs-express-mysql/

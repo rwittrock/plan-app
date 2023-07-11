@@ -8,6 +8,10 @@ const fs = require("fs");
 //middleware
 app.use(express.json());
 
+app.get("/", (req, res) => {
+    return res.sendFile(__dirname+"/index.html")
+});
+
 app.get("/courses", (req, res) => {
     //load database
     const courses = require('./data.json')
