@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,minimum-scale=1">
+		<title>Create Question</title>
+        <!-- the form awesome library is used to add icons to our form -->
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+        <!-- include the stylesheet file -->
+        <link href="/static_content/style.css" rel="stylesheet" type="text/css">
+		<script src = "/frontend_scripts/createquestion.js">
+        </script>
+<body>
+  <h1>Create a Question</h1>
+
+  <form id="questionForm">
+    <label for="question">Question:</label><br>
+    <textarea id="question" name="question" rows="4" cols="50"></textarea><br><br>
+
+    <label for="answer1">Answer 1:</label>
+    <input type="text" id="answer1" name="answer1"><br>
+
+    <label for="answer2">Answer 2:</label>
+    <input type="text" id="answer2" name="answer2"><br>
+
+    <label for="answer3">Answer 3:</label>
+    <input type="text" id="answer3" name="answer3"><br>
+
+    <label for="answer4">Answer 4:</label>
+    <input type="text" id="answer4" name="answer4"><br>
+
+    <label for="answer5">Answer 5:</label>
+    <input type="text" id="answer5" name="answer5"><br><br>
+
+    <label for="correctAnswer">Correct Answer:</label>
+    <select id="correctAnswer" name="correctAnswer">
+      <option value="1">Answer 1</option>
+      <option value="2">Answer 2</option>
+      <option value="3">Answer 3</option>
+      <option value="4">Answer 4</option>
+      <option value="5">Answer 5</option>
+    </select><br><br>
+   
+    <input type="submit" value="Submit">
+  </form>
+</body>
+</html>

@@ -1,0 +1,5 @@
+sørg for at server ikke crasher hvis DB er nede
+sql Injection
+session?
+status codes
+dynamisk opdatering af id
