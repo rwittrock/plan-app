@@ -1,26 +1,58 @@
 window.addEventListener('DOMContentLoaded', getQuestion);
 
+//add eventlistener to submit button
+//prevent default form submit
+
 function getQuestion() {
+  document.getElementById("answer_form").addEventListener("submit", function(event){
+    event.preventDefault()
+    submitAnswer();
+});
     var xhr = new XMLHttpRequest();
     xhr.open('GET', 'http://localhost:3000/getquestion', true);
     xhr.onload = function() {
+      if(xhr.responseText == "finished") {
+        window.location.href = "http://localhost:3000/finish";
+        return;
+      }
+        document.getElementById("answer_form").disabled=false;
         var question = JSON.parse(xhr.responseText);
+        correct_answer = question.correct_answer;
         renderQuestion(question);
     };
     xhr.send();
   }
 
-function renderQuestion(question) {
-    var title = document.getElementById("question");
-    title.textContent = question.question;
-    var answer1 = document.getElementById("answer1");
-    answer1.textContent = question.answer1;
-    var answer2 = document.getElementById("answer2");
-    answer2.textContent = question.answer2;
-    var answer3 = document.getElementById("answer3");
-    answer3.textContent = question.answer3;
-    var answer4 = document.getElementById("answer4");
-    answer4.textContent = question.answer4;
-    var answer5 = document.getElementById("answer5");
-    answer5.textContent = question.answer5;
-};
+  function renderQuestion(question) {
+    document.getElementById("question").textContent = question.question;
+    document.getElementById("answer1_label").innerHTML = question.answer_1;
+    document.getElementById("answer2_label").innerHTML = question.answer_2;
+    document.getElementById("answer3_label").innerHTML = question.answer_3;
+    document.getElementById("answer4_label").innerHTML = question.answer_4;
+    document.getElementById("answer5_label").innerHTML = question.answer_5;
+  };
+
+  function submitAnswer() {
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'http://localhost:3000/submitanswer', true);
+    xhr.withCredentials = true;
+    xhr.setRequestHeader("Content-Type", "application/json");
+
+    var payload = {
+      answer: parseInt((JSON.stringify({answer: document.querySelector('input[name="answer"]:checked').value})).replace(/\D/g,'')),
+      correct_answer: correct_answer
+    };
+
+    xhr.send(JSON.stringify(payload));
+    xhr.onload = function() {
+        //if answer is correct
+        if (xhr.responseText == "correct") {
+          //alert correct
+          alert("Correct!");
+          //get new question
+          window.location.reload();
+    } else { 
+      //if answer is incorrect
+      //alert incorrect
+      alert("Incorrect!");
+  }}};

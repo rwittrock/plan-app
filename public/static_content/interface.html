@@ -12,20 +12,20 @@
 	</head>
 	<body>
 		<div class="interface">
-            <form action="/submitAnswer">
+            <form id="answer_form" disabled="true">
                 <p id="question"></p>
                 <img id="image" width="400" src="/images/tom_hjerne.jpg"><br>
                 <input type="radio" id="answer1" name="answer" value="1">
-                <label for="answer1"></label><br>
+                <label for="answer1" id="answer1_label"></label><br>
                 <input type="radio" id="answer2" name="answer" value="2">
-                <label for="answer2"></label><br>
+                <label for="answer2" id="answer2_label"></label><br>
                 <input type="radio" id="answer3" name="answer" value="3">
-                <label for="answer3"></label><br>
+                <label for="answer3" id="answer3_label"></label><br>
                 <input type="radio" id="answer4" name="answer" value="4">
-                <label for="answer4"></label><br>
+                <label for="answer4" id="answer4_label"></label><br>
                 <input type="radio" id="answer5" name="answer" value="5">
-                <label for="answer5"></label><br><br>
-                <input type="submit" value="Submit">
+                <label for="answer5" id="answer5_label"></label><br><br>
+                <input type="submit" value="Submit" id="submit">
 
                 
             </form>

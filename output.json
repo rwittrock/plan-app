@@ -1,1 +1,57 @@
-[]
+[
+  {
+    "userID": 1,
+    "username": "test",
+    "questions": [
+      34,
+      33
+    ],
+    "count": 0,
+    "attempts": 0,
+    "questions_answered": 0
+  },
+  {
+    "userID": 24,
+    "username": "awdasdg",
+    "questions": [
+      33,
+      34
+    ],
+    "count": 0,
+    "attempts": 0,
+    "questions_answered": 0
+  },
+  {
+    "userID": 25,
+    "username": "asd",
+    "questions": [
+      33,
+      34
+    ],
+    "count": 0,
+    "attempts": 0,
+    "questions_answered": 0
+  },
+  {
+    "userID": 26,
+    "username": "asd",
+    "questions": [
+      33,
+      34
+    ],
+    "count": 0,
+    "attempts": 0,
+    "questions_answered": 0
+  },
+  {
+    "userID": 27,
+    "username": "asfdfghgfh",
+    "questions": [
+      34,
+      33
+    ],
+    "count": 0,
+    "attempts": 0,
+    "questions_answered": 0
+  }
+]

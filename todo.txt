@@ -2,4 +2,9 @@ sørg for at server ikke crasher hvis DB er nede
 sql Injection
 session?
 status codes
-dynamisk opdatering af id
+error handling istedet for at returnere mærkelige ting
+promises istedet for at gemme korrekt svar i browser
+gøre html ting pænere
+tjek om der er flere spørgsmål før den loader html
+istedet for at shuffle spørgsmål når man trykker, så redirect til en ny side for at undgå brugerfejl
+gør det mobile friendly
