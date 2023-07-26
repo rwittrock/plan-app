@@ -24,6 +24,7 @@ function getQuestion() {
   }
 
   function renderQuestion(question) {
+    document.getElementById("image").src = "images/" + question.id + ".png";
     document.getElementById("question").textContent = question.question;
     document.getElementById("answer1_label").innerHTML = question.answer_1;
     document.getElementById("answer2_label").innerHTML = question.answer_2;

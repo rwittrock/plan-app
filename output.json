@@ -3,52 +3,52 @@
     "userID": 1,
     "username": "test",
     "questions": [
-      34,
-      33
+      19,
+      20
     ],
     "count": 0,
     "attempts": 0,
     "questions_answered": 0
   },
   {
-    "userID": 24,
-    "username": "awdasdg",
+    "userID": 2,
+    "username": "user1",
     "questions": [
-      33,
-      34
+      19,
+      20
+    ],
+    "count": 2,
+    "attempts": 2,
+    "questions_answered": 2
+  },
+  {
+    "userID": 3,
+    "username": "user1",
+    "questions": [
+      19,
+      20
     ],
     "count": 0,
     "attempts": 0,
     "questions_answered": 0
   },
   {
-    "userID": 25,
-    "username": "asd",
+    "userID": 4,
+    "username": "user2",
     "questions": [
-      33,
-      34
+      20,
+      19
     ],
-    "count": 0,
-    "attempts": 0,
-    "questions_answered": 0
+    "count": 1,
+    "attempts": 1,
+    "questions_answered": 1
   },
   {
-    "userID": 26,
-    "username": "asd",
+    "userID": 6,
+    "username": "patrulje1",
     "questions": [
-      33,
-      34
-    ],
-    "count": 0,
-    "attempts": 0,
-    "questions_answered": 0
-  },
-  {
-    "userID": 27,
-    "username": "asfdfghgfh",
-    "questions": [
-      34,
-      33
+      19,
+      20
     ],
     "count": 0,
     "attempts": 0,

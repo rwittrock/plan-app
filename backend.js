@@ -5,7 +5,11 @@ const path = require('path');
 const cors = require('cors');
 const fs = require('fs');
 const cryptoJS = require('crypto-js');
-const key = "asfgvbsdhjvb"
+const req = require('express/lib/request');
+const key = "asfgvbsdhjvb";
+
+const multer  = require('multer')
+const upload = multer({ dest: 'public/images/' });
 
 const pointsFile = 'points.json';
 
@@ -167,7 +171,7 @@ app.post('/create', function(request, response) {
                 // If the account exists
                 if (results.length > 0) {
                     // Output username
-                    return response.send('User already exists!');
+                    return response.send('User already exists! Please delete 1 of the users with this username, to ensure the system works');
                 }})
                     
                 
@@ -209,7 +213,9 @@ app.get(`/createquestion`, function(request, response) {
 	}
 });
 
-app.post('/submitquestion', async function(request, response) {
+app.post('/submitquestion', upload.single("image"), async function(request, response) {
+	//set header to Content-Type: multipart/form-data
+	request.headers['content-type'] = 'multipart/form-data';
 	// check that whoever sent the request is an admin
 	if (request.session.loggedin && request.session.admin) {
 	  // Capture the input fields
@@ -220,20 +226,45 @@ app.post('/submitquestion', async function(request, response) {
 	  let answer_4 = request.body.answer4;
 	  let answer_5 = request.body.answer5;
 	  let correct_answer = request.body.correctAnswer;
+	  let image = request.file;
   
 	  // Ensure the input fields exist and are not empty
 	  if (question && answer_1 && answer_2 && answer_3 && answer_4 && answer_5 && correct_answer) {
 		try {
 		  // Execute SQL query that'll create a new question with the specified fields
 		  await new Promise((resolve, reject) => {
+
 			connection.query('INSERT INTO tasks (question, answer_1, answer_2, answer_3, answer_4, answer_5, correct_answer) VALUES (?, ?, ?, ?, ?, ?, ?)',
-			  [question, answer_1, answer_2, answer_3, answer_4, answer_5, correct_answer],
-			  function(error, results, fields) {
-				if (error) reject(error);
-				resolve();
-			  }
-			);
-		  });
+            [question, answer_1, answer_2, answer_3, answer_4, answer_5, correct_answer],
+            function (error, results, fields) {
+              if (error) reject(error);
+
+              // Get the path to the uploaded image file
+			  console.log(request.file);
+              const imagePath = image.path;
+
+              // Read the image data and save it using fs.writeFile
+              fs.readFile(imagePath, 'base64', function (err, data) {
+                if (err) {
+                  console.log('Error reading the image:', err);
+                  reject(err);
+                } else {
+                  // Save the image to a file with the appropriate name
+                  const fileName = "public/images/" + results.insertId + ".png";
+                  fs.writeFile(fileName, data, 'base64', function (err) {
+                    if (err) {
+                      console.log('Error saving the image:', err);
+                      reject(err);
+                    } else {
+                      console.log('Image saved successfully: ' + fileName);
+                      resolve();
+                    }
+                  });
+                }
+              });
+            }
+          );
+        });
 		  // Output success status
 		  return response.sendStatus(200);
 		} catch (error) {

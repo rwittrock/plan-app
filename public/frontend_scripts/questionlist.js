@@ -38,6 +38,12 @@ function renderquestions(questions) {
         var answersList = document.createElement("ul");
         answersCell.appendChild(answersList);
 
+        var imageCell = document.createElement("td");
+        var image = document.createElement("img");
+        imageCell.appendChild(image);
+        image.width = 600;
+        image.src = "images/" + question.id + ".png";
+
         var answer_1 = document.createElement("li");
         answer_1.textContent = question.answer_1;
         var answer_2 = document.createElement("li");
@@ -81,6 +87,7 @@ function renderquestions(questions) {
         // Append cells to the row
         row.appendChild(idCell);
         row.appendChild(questionCell);
+        row.appendChild(imageCell)
         row.appendChild(answersCell);
         row.appendChild(actionCell);
 
@@ -91,7 +98,7 @@ function renderquestions(questions) {
         // Handle case when there are no questions
         var emptyRow = document.createElement("tr");
         var emptyCell = document.createElement("td");
-        emptyCell.setAttribute("colspan", "4");
+        emptyCell.setAttribute("colspan", "5");
         emptyCell.textContent = "No questions found.";
         emptyRow.appendChild(emptyCell);
         tableBody.appendChild(emptyRow);

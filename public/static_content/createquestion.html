@@ -13,9 +13,12 @@
 <body>
   <h1>Create a Question</h1>
 
-  <form id="questionForm">
+  <form id="questionForm" enctype="multipart/form-data">
     <label for="question">Question:</label><br>
     <textarea id="question" name="question" rows="4" cols="50"></textarea><br><br>
+
+    <label for="image">Image:</label>
+    <input type="file" id="image" name="image"><br><br>
 
     <label for="answer1">Answer 1:</label>
     <input type="text" id="answer1" name="answer1"><br>

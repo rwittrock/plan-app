@@ -22,6 +22,6 @@ window.addEventListener('DOMContentLoaded', function() {
       }
     };
 
-    xhr.send(new URLSearchParams(formData)); // Send the form data as URL-encoded parameters
+    xhr.send(formData); // Send the form data as URL-encoded parameters
   });
 });
