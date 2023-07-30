@@ -14,12 +14,12 @@
     "userID": 10,
     "username": "patrulje1",
     "questions": [
-      23,
-      24
+      24,
+      23
     ],
-    "count": 2,
-    "attempts": 2,
-    "questions_answered": 2
+    "count": 0,
+    "attempts": 0,
+    "questions_answered": 0
   },
   {
     "userID": 11,
@@ -28,8 +28,8 @@
       24,
       23
     ],
-    "count": 2,
-    "attempts": 5,
-    "questions_answered": 2
+    "count": 0,
+    "attempts": 0,
+    "questions_answered": 0
   }
 ]
