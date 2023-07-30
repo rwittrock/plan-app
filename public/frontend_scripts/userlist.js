@@ -61,7 +61,7 @@ function renderUsers(users) {
     var emptyRow = document.createElement("tr");
     var emptyCell = document.createElement("td");
     emptyCell.setAttribute("colspan", "4");
-    emptyCell.textContent = "No users found.";
+    emptyCell.textContent = "Ingen brugere fundet.";
     emptyRow.appendChild(emptyCell);
     tableBody.appendChild(emptyRow);
   }

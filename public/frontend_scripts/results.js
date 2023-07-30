@@ -57,7 +57,7 @@ function renderResults(results) {
         var emptyRow = document.createElement("tr");
         var emptyCell = document.createElement("td");
         emptyCell.setAttribute("colspan", "4");
-        emptyCell.textContent = "No results found.";
+        emptyCell.textContent = "Ingen resultater fundet.";
         emptyRow.appendChild(emptyCell);
         tableBody.appendChild(emptyRow);
     }

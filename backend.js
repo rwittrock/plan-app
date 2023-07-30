@@ -4,15 +4,12 @@ const session = require('express-session');
 const path = require('path');
 const cors = require('cors');
 const fs = require('fs');
-const cryptoJS = require('crypto-js');
-const req = require('express/lib/request');
-const key = "asfgvbsdhjvb";
+
 
 const multer  = require('multer')
 const upload = multer({ dest: 'public/images/' });
 
-const pointsFile = 'points.json';
-
+// Create connection to the database
 const connection = mysql.createConnection({
 	host     : 'localhost',
 	user     : 'root',
@@ -93,6 +90,18 @@ app.get('/home', function(request, response) {
 	}
 });
 
+// http://localhost:3000/shuffle
+app.get('/shuffle', function(request, response) {
+	// If the user is loggedin
+	if (request.session.loggedin && request.session.admin) {
+		//return the admin page
+        return response.sendFile(path.join(__dirname + '/public/static_content/shuffleQuestions.html'));
+	} else {
+		// Not logged in
+		return response.send('Please login to an admin account to view this page!');
+	}
+});
+
 app.get('/finish', function(request, response) {
 	// If the user is loggedin
 	if (request.session.loggedin) {
@@ -103,7 +112,6 @@ app.get('/finish', function(request, response) {
 		return response.send('Please login to view this page!');
 	}
 });
-
 
 // http://localhost:3000/admin
 app.get('/admin', function(request, response) {
@@ -229,7 +237,7 @@ app.post('/submitquestion', upload.single("image"), async function(request, resp
 	  let image = request.file;
   
 	  // Ensure the input fields exist and are not empty
-	  if (question && answer_1 && answer_2 && answer_3 && answer_4 && answer_5 && correct_answer) {
+	  if (question && answer_1 && answer_2 && answer_3 && answer_4 && answer_5 && correct_answer && image) {
 		try {
 		  // Execute SQL query that'll create a new question with the specified fields
 		  await new Promise((resolve, reject) => {
@@ -240,7 +248,6 @@ app.post('/submitquestion', upload.single("image"), async function(request, resp
               if (error) reject(error);
 
               // Get the path to the uploaded image file
-			  console.log(request.file);
               const imagePath = image.path;
 
               // Read the image data and save it using fs.writeFile
@@ -480,8 +487,6 @@ app.post('/submitanswer', function(request, response) {
 
 	// Ensure the input fields exists and are not empty
 	if (answer && userID && questionID) {
-		console.log(answer);
-		console.log(correct_answer);
 		//check that the submitted answer is correct
 		if (answer === correct_answer) {
 			//increment count in the json file
@@ -512,24 +517,6 @@ app.post('/submitanswer', function(request, response) {
 
 	
 	
-});
-/*
-const getCorrectAnswer = (questionID) => {
-	const correct_answer = //get the correct answer from the database asynchronusly
-	connection.query('SELECT * FROM tasks WHERE id = ?', [questionID], function(error, results, fields) {
-		console.log("correct answer call " + results[0].correct_answer);
-		correct_answer = String(results[0].correct_answer);
-		if (error) throw error;
-	}	);
-	return correct_answer;
-}
-
-*/
-
-//method which makes a json file if it doesnt exist, puts in the ids of all users, and takes a user id and question id and a boolean as an input
-//if the boolean is true 
-
-	
-
+});	
 
 app.listen(3000, () => {console.log('Server started on port 3000');});

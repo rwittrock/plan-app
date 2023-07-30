@@ -3,55 +3,33 @@
     "userID": 1,
     "username": "test",
     "questions": [
-      19,
-      20
+      24,
+      23
     ],
     "count": 0,
     "attempts": 0,
     "questions_answered": 0
   },
   {
-    "userID": 2,
-    "username": "user1",
+    "userID": 10,
+    "username": "patrulje1",
     "questions": [
-      19,
-      20
+      23,
+      24
     ],
     "count": 2,
     "attempts": 2,
     "questions_answered": 2
   },
   {
-    "userID": 3,
-    "username": "user1",
+    "userID": 11,
+    "username": "patrulje2",
     "questions": [
-      19,
-      20
+      24,
+      23
     ],
-    "count": 0,
-    "attempts": 0,
-    "questions_answered": 0
-  },
-  {
-    "userID": 4,
-    "username": "user2",
-    "questions": [
-      20,
-      19
-    ],
-    "count": 1,
-    "attempts": 1,
-    "questions_answered": 1
-  },
-  {
-    "userID": 6,
-    "username": "patrulje1",
-    "questions": [
-      19,
-      20
-    ],
-    "count": 0,
-    "attempts": 0,
-    "questions_answered": 0
+    "count": 2,
+    "attempts": 5,
+    "questions_answered": 2
   }
 ]

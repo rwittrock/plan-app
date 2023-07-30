@@ -49,11 +49,11 @@ function getQuestion() {
         //if answer is correct
         if (xhr.responseText == "correct") {
           //alert correct
-          alert("Correct!");
+          alert("Korrekt!");
           //get new question
           window.location.reload();
     } else { 
       //if answer is incorrect
       //alert incorrect
-      alert("Incorrect!");
+      alert("Forkert! Prøv igen");
   }}};

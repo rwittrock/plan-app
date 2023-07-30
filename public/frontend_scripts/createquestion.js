@@ -18,7 +18,7 @@ window.addEventListener('DOMContentLoaded', function() {
       }
       else {
         // Handle error
-        alert('Something went wrong');
+        alert('Noget gik galt!');
       }
     };
 
