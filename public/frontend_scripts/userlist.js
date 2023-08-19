@@ -2,7 +2,7 @@ window.addEventListener('DOMContentLoaded', getUsers);
 
 function getUsers() {
   var xhr = new XMLHttpRequest();
-  xhr.open('GET', 'http://localhost:3000/getusers', true);
+  xhr.open('GET', 'http://192.168.227.27:3000/getusers', true);
   xhr.onload = function() {
       var users = JSON.parse(xhr.responseText);
       renderUsers(users);
@@ -79,7 +79,7 @@ function deleteUser(userId) {
 
   // Send the HTTP request to delete the user based on the id found in its HTML table row
   var xhr = new XMLHttpRequest();
-  xhr.open('POST', 'http://localhost:3000/deleteuser', true);
+  xhr.open('POST', 'http://192.168.227.27:3000/deleteuser', true);
   xhr.setRequestHeader('Content-Type', 'application/json');
   xhr.onload = function() {
     // Reload the page

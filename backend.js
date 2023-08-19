@@ -478,13 +478,14 @@ app.post('/submitanswer', function(request, response) {
 		// Capture the input fields
 	let answer = request.body.answer;
 	let correct_answer = request.body.correct_answer;
+	let session_question_id = request.body.questionID;
 	const userID = request.session.userID;
 	//get the id of the question the user is answering from the json
 	const jsonContent = fs.readFileSync('output.json', 'utf8');
 	const parsedData = JSON.parse(jsonContent);
 	const userData = parsedData.find((user) => user.userID == userID);
 	const questionID = userData.questions[userData.count];
-
+	
 	// Ensure the input fields exists and are not empty
 	if (answer && userID && questionID) {
 		//check that the submitted answer is correct
