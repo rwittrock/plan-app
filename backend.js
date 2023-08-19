@@ -69,11 +69,11 @@ app.post('/auth', function(request, response) {
                 else return response.redirect('/home');
 
 			} else {
-				return response.send('Incorrect Username and/or Password!');
+				return response.send('Forkert brugernavn og/eller adgangskode');
 			}
 		});
 	} else {
-		return response.send('Please enter Username and Password!');
+		return response.send('Indtast venligst brugernavn og kodeord');
 	}
 });
 
@@ -86,7 +86,7 @@ app.get('/home', function(request, response) {
 
 	} else {
 		// Not logged in
-		return response.send('Please login to view this page!');
+		return response.send('Du skal logge ind på en konto for at se dette indhold');
 	}
 });
 
@@ -98,7 +98,7 @@ app.get('/shuffle', function(request, response) {
         return response.sendFile(path.join(__dirname + '/public/static_content/shuffleQuestions.html'));
 	} else {
 		// Not logged in
-		return response.send('Please login to an admin account to view this page!');
+		return response.send('Du skal logge ind på en admin konto for at se dette indhold');
 	}
 });
 
@@ -109,7 +109,7 @@ app.get('/finish', function(request, response) {
 		return response.sendFile(path.join(__dirname + '/public/static_content/finish.html'));
 	} else {
 		// Not logged in
-		return response.send('Please login to view this page!');
+		return response.send('Du skal logge ind på en konto for at se dette indhold');
 	}
 });
 
@@ -121,7 +121,7 @@ app.get('/admin', function(request, response) {
         return response.sendFile(path.join(__dirname + '/public/static_content/admin.html'));
 	} else {
 		// Not logged in
-		return response.send('Please login to an admin account to view this page!');
+		return response.send('Du skal logge ind på en admin konto for at se dette indhold');
 	}
 });
 
@@ -132,7 +132,7 @@ app.get(`/createuser`, function(request, response) {
 		return response.sendFile(path.join(__dirname + '/public/static_content/createuser.html'));
 	} else {
 		// Not logged in
-		return response.send('Please login to an admin account to view this page!');
+		return response.send('Du skal logge ind på en admin konto for at se dette indhold');
 	}
 });
 
@@ -143,7 +143,7 @@ app.get(`/userlist`, function(request, response) {
 		return response.sendFile(path.join(__dirname + '/public/static_content/userlist.html'));
 	} else {
 		// Not logged in
-		return response.send('Please login to an admin account to view this page!');
+		return response.send('Du skal logge ind på en admin konto for at se dette indhold');
 	}
 });
 
@@ -159,7 +159,7 @@ app.get(`/getusers`, function(request, response) {
 		});
 	} else {
 		// Not logged in
-		return response.send('Please login to an admin account to view this page!');
+		return response.send('Du skal logge ind på en admin konto for at se dette indhold');
 	}
 });
 				
@@ -217,7 +217,7 @@ app.get(`/createquestion`, function(request, response) {
 		response.sendFile(path.join(__dirname + '/public/static_content/createquestion.html'));
 	} else {
 		// Not logged in
-		return response.send('Please login to an admin account to view this page!');
+		return response.send('Du skal logge ind på en admin konto for at se dette indhold');
 	}
 });
 
@@ -290,7 +290,7 @@ app.get(`/questionlist`, function(request, response) {
 		return response.sendFile(path.join(__dirname + '/public/static_content/questionlist.html'));
 	} else {
 		// Not logged in
-		return response.send('Please login to an admin account to view this page!');
+		return response.send('Du skal logge ind på en admin konto for at se dette indhold');
 	}
 });
 
@@ -306,7 +306,7 @@ app.get(`/getquestions`, function(request, response) {
 		});
 	} else {
 		// Not logged in
-		return response.send('Please login to an admin account to view this page!');
+		return response.send('Du skal logge ind på en admin konto for at se dette indhold');
 	}
 });
 
@@ -425,7 +425,7 @@ app.get('/getquestion', function(request, response) {
 	});
 	} else {
 		// Not logged in
-		return response.send('Please login to view this page!');
+		return response.send('Du skal logge ind på en konto for at se dette indhold');
 	}
 
 	
@@ -454,7 +454,7 @@ app.get('/results', function(request, response) {
 		return response.sendFile(path.join(__dirname + '/public/static_content/results.html'));
 	} else {
 		// Not logged in
-		return response.send('Please login to an admin account to view this page!');
+		return response.send('Du skal logge ind på en admin konto for at se dette indhold');
 	}
 });
 
@@ -467,7 +467,7 @@ app.get('/getresults', function(request, response) {
 		return response.send(parsedData);
 	} else {
 		// Not logged in
-		return response.send('Please login to an admin account to view this page!');
+		return response.send('Du skal logge ind på en admin konto for at se dette indhold');
 	}
 });
 
@@ -512,7 +512,7 @@ app.post('/submitanswer', function(request, response) {
 	}
 	} else {
 		// Not logged in
-		return response.send('Please login to view this page!');
+		return response.send('Du skal logge ind på en konto for at se dette indhold');
 	}
 
 	
