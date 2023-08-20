@@ -2,7 +2,7 @@ window.addEventListener('DOMContentLoaded', getUsers);
 
 function getUsers() {
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'http://192.168.227.27:3000/getresults', true);
+    xhr.open('GET', 'http://10.222.102.193:3000/getresults', true);
     xhr.onload = function () {
         var results = JSON.parse(xhr.responseText);
         renderResults(results);
