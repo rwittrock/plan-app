@@ -9,10 +9,10 @@ function getQuestion() {
     submitAnswer();
 });
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'http://129.151.212.86:3000/getquestion', true);
+    xhr.open('GET', 'http://138.2.151.211:3000/getquestion', true);
     xhr.onload = function() {
       if(xhr.responseText == "finished") {
-        window.location.href = "http://129.151.212.86:3000/finish";
+        window.location.href = "http://138.2.151.211:3000/finish";
         return;
       }
         document.getElementById("answer_form").disabled=false;
@@ -35,7 +35,7 @@ function getQuestion() {
 
   function submitAnswer() {
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'http://129.151.212.86:3000/submitanswer', true);
+    xhr.open('POST', 'http://138.2.151.211:3000/submitanswer', true);
     xhr.withCredentials = true;
     xhr.setRequestHeader("Content-Type", "application/json");
 
