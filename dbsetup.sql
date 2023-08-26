@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS `accounts` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
-INSERT INTO `accounts` (`id`, `username`, `password`, `admin`) VALUES (1, 'test', 'test', true);
+INSERT INTO `accounts` (`id`, `username`, `password`, `admin`) VALUES (1, 'admin', 'admin', true);
 
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
 
