@@ -12,7 +12,7 @@ const upload = multer({ dest: 'public/images/' });
 // Create connection to the database
 const connection = mysql.createConnection({
 	host     : 'localhost',
-	user     : 'root',
+	user     : 'db_user',
 	password : 'password',
 	database : 'nodelogin'
 });
