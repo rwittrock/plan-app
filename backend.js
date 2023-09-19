@@ -46,6 +46,7 @@ app.get('/', function(request, response) {
 
 // http://localhost:3000/nomoretime
 app.get('/nomoretime', function(request, response) {
+	console.log("time is up");
 	// If the user is loggedin
 	if (request.session.loggedin) {
 		// Return the interface page

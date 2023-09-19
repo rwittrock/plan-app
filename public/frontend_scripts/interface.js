@@ -12,7 +12,7 @@ function checkTimeAndRedirect() {
   // Check if the current hour is 20 or later
   if (currentHour >= 10 && currentMinute >= 38) {
     // Redirect to the specified page
-    window.location.href = "http://138.2.151.211:3000/nomoretime";
+    return window.location.href = "http://138.2.151.211:3000/nomoretime";
   } else {
     // If it's not 20 or later, continue with your original code
     getQuestion();
