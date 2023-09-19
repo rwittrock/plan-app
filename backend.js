@@ -44,6 +44,19 @@ app.get('/', function(request, response) {
 	response.sendFile(path.join(__dirname + '/public/static_content/login.html'));
 });
 
+// http://localhost:3000/nomoretime
+app.get('/nomoretime', function(request, response) {
+	// If the user is loggedin
+	if (request.session.loggedin) {
+		// Return the interface page
+		return response.sendFile(path.join(__dirname + '/public/static_content/timerunout.html'));
+
+	} else {
+		// Not logged in
+		return response.send('Du skal logge ind på en konto for at se dette indhold');
+	}
+});
+
 // http://localhost:3000/auth
 app.post('/auth', function(request, response) {
 	// Capture the input fields
@@ -521,13 +534,7 @@ app.post('/submitanswer', function(request, response) {
 	
 });	
 
-//http://138.2.151.211:3000/nomoretime
-app.get('/nomoretime', function(request, response) {
-	// If the user is loggedin
-	if (request.session.loggedin) {
-		// Return the time run out page
-		response.sendFile(path.join(__dirname + '/public/static_content/timerunout.html'));
-}});
+
 
 
 app.listen(3000, () => {console.log('Server started on port 3000');});
