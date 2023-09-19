@@ -1,9 +1,30 @@
-window.addEventListener('DOMContentLoaded', getQuestion);
+window.addEventListener('DOMContentLoaded', function () {
+  checkTimeAndRedirect(); // Check initially
+  setInterval(checkTimeAndRedirect, 30000); // Check every minute (adjust as needed)
+});
+
+function checkTimeAndRedirect() {
+  // Get the current date and time
+  var currentTime = new Date();
+  var currentHour = currentTime.getHours();
+  var currentMinute = currentTime.getMinutes();
+
+  // Check if the current hour is 20 or later
+  if (currentHour >= 10 && currentMinute >= 28) {
+    // Redirect to the specified page
+    window.location.href = 'http://138.2.151.211:3000/nomoretime';
+  } else {
+    // If it's not 20 or later, continue with your original code
+    getQuestion();
+  }
+}
 
 //add eventlistener to submit button
 //prevent default form submit
 
 function getQuestion() {
+ 
+
   document.getElementById("answer_form").addEventListener("submit", function(event){
     event.preventDefault()
     submitAnswer();

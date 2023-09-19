@@ -6,7 +6,8 @@ const cors = require('cors');
 const fs = require('fs');
 
 
-const multer  = require('multer')
+const multer  = require('multer');
+const res = require('express/lib/response');
 const upload = multer({ dest: 'public/images/' });
 
 // Create connection to the database
@@ -519,5 +520,14 @@ app.post('/submitanswer', function(request, response) {
 	
 	
 });	
+
+//http://138.2.151.211:3000/nomoretime
+app.get('/nomoretime', function(request, response) {
+	// If the user is loggedin
+	if (request.session.loggedin) {
+		// Return the time run out page
+		response.sendFile(path.join(__dirname + '/public/static_content/timerunout.html'));
+}});
+
 
 app.listen(3000, () => {console.log('Server started on port 3000');});
