@@ -46,12 +46,10 @@ app.get('/', function(request, response) {
 
 // http://localhost:3000/nomoretime
 app.get('/nomoretime', function(request, response) {
-	console.log("time is up");
 	// If the user is loggedin
 	if (request.session.loggedin) {
 		// Return the interface page
 		return response.sendFile(path.join(__dirname + '/public/static_content/timerunout.html'));
-
 	} else {
 		// Not logged in
 		return response.send('Du skal logge ind på en konto for at se dette indhold');
@@ -97,7 +95,7 @@ app.get('/home', function(request, response) {
 	// If the user is loggedin
 	if (request.session.loggedin) {
 		// Return the interface page
-		return response.sendFile(path.join(__dirname + '/public/static_content/interface.html'));
+		return response.sendFile(path.join(__dirname + '/public/static_content/timerunout.html'));
 
 	} else {
 		// Not logged in
