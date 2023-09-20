@@ -471,8 +471,8 @@ app.get('/shufflequestions', function(request, response) {
     Promise.all([queryUserIDs, queryQuestionIDs])
         .then(() => {
             generateJSONFile(userIDs, questionIDs, usernames);
-            response.send('Data populated successfully.');
 			writeToLog(request.ip + " populated json file successfully");
+            response.redirect('/admin');
         })
         .catch((error) => {
 			writeToLog(request.ip + " encountered an error while populating json file: " + error);
