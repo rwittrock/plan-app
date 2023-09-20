@@ -608,8 +608,25 @@ app.post('/submitanswer', function(request, response) {
 	// Ensure the input fields exists and are not empty
 	if (answer && userID && questionID) {
 		writeToLog(request.ip + " attempted to submit answer " + answer + " to question with id " + questionID + "");
-		//check that the submitted answer is correct
-		if (answer === correct_answer) {
+		tooLate = false;
+		//check that the time is before 20
+		currentTime = new Date();
+		currentTime.setHours(currentTime.getHours()+2);
+		var currentHour = currentTime.getHours();
+		var currentMinute = currentTime.getMinutes();
+	  
+		// Check if the current hour is 20 or later
+		var stopHour = 11;
+		var stopMinute = 20;
+		if(currentHour >= stopHour){
+		  if(currentMinute >= stopMinute) {
+		  tooLate = true;
+		  }
+		  else if(currentHour > stopHour){
+		  tooLate = true;
+		  }
+		}
+		if (answer === correct_answer && !tooLate) {
 			//increment count in the json file
 			const jsonContent = fs.readFileSync('output.json', 'utf8');
 			const parsedData = JSON.parse(jsonContent);
@@ -621,6 +638,10 @@ app.post('/submitanswer', function(request, response) {
 			writeToLog(request.ip + " submitted correct answer to question with id " + questionID + "");
 			return response.send('correct');
 		} else {
+			if(tooLate){
+				writeToLog(request.ip + " submitted answer to question with id " + questionID + " after end time");
+				return response.send('tooLate');
+			}
 			const jsonContent = fs.readFileSync('output.json', 'utf8');
 			const parsedData = JSON.parse(jsonContent);
 			const userData = parsedData.find((user) => user.userID == userID);
