@@ -96,7 +96,7 @@ app.post('/auth', function(request, response) {
 				}
                 else{
 					write(request.ip + " is not an admin and is redirected to /home")
-					return response.redirect('/home');}
+					response.redirect('/home');}
 
 			} else {
 				return response.send('Forkert brugernavn og/eller adgangskode');
@@ -104,8 +104,9 @@ app.post('/auth', function(request, response) {
 			}
 		});
 	} else {
-		return response.send('Indtast venligst brugernavn og kodeord');
 		writeToLog(request.ip + " did not enter a username and/or password")
+
+		return response.send('Indtast venligst brugernavn og kodeord');
 	}
 });
 
