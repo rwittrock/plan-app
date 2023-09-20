@@ -11,8 +11,8 @@ function checkTimeAndRedirect() {
   var currentMinute = currentTime.getMinutes();
 
   // Check if the current hour is 20 or later
-  var stopHour = 16;
-  var stopMinute = 34;
+  var stopHour = 20;
+  var stopMinute = 0;
   if(currentHour >= stopHour){
     if(currentMinute >= stopMinute) {
     window.location.href = "http://138.2.151.211:3000/nomoretime";
@@ -80,7 +80,7 @@ function getQuestion() {
     } else if (xhr.responseText == "tooLate"){ 
       //if answer is incorrect
       //alert incorrect
-      alert("Tiden er gået.");}
+      alert("Tiden er gået. I kan ikke længere svare på spørgsmålene.");}
       else {
         alert ("Forkert!")
       }

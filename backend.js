@@ -616,8 +616,8 @@ app.post('/submitanswer', function(request, response) {
 		var currentMinute = currentTime.getMinutes();
 	  
 		// Check if the current hour is 20 or later
-		var stopHour = 11;
-		var stopMinute = 20;
+		var stopHour = 20;
+		var stopMinute = 1;
 		if(currentHour >= stopHour){
 		  if(currentMinute >= stopMinute) {
 		  tooLate = true;
