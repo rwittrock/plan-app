@@ -11,10 +11,16 @@ function checkTimeAndRedirect() {
   var currentMinute = currentTime.getMinutes();
 
   // Check if the current hour is 20 or later
-  if (currentHour >= 11 && currentMinute >= 12) {
-    // Redirect to the specified page
-  window.location.href = "http://138.2.151.211:3000/nomoretime";
-  } 
+  var stopHour = 20;
+  var stopMinute = 0;
+  if(currentHour >= stopHour){
+    if(currentMinute >= stopMinute) {
+    window.location.href = "http://138.2.151.211:3000/nomoretime";
+    }
+    else if(currentHour > stopHour){
+    window.location.href = "http://138.2.151.211:3000/nomoretime";
+    }
+  }
 }
 
 //add eventlistener to submit button
