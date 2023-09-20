@@ -50,6 +50,7 @@ app.get('/nomoretime', function(request, response) {
 	if (request.session.loggedin) {
 		// Return the interface page
 		return response.sendFile(path.join(__dirname + '/public/static_content/timerunout.html'));
+
 	} else {
 		// Not logged in
 		return response.send('Du skal logge ind på en konto for at se dette indhold');
@@ -95,7 +96,7 @@ app.get('/home', function(request, response) {
 	// If the user is loggedin
 	if (request.session.loggedin) {
 		// Return the interface page
-		return response.sendFile(path.join(__dirname + '/public/static_content/timerunout.html'));
+		return response.sendFile(path.join(__dirname + '/public/static_content/interface.html'));
 
 	} else {
 		// Not logged in
