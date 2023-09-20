@@ -643,7 +643,7 @@ app.post('/submitanswer', function(request, response) {
 
 function writeToLog(logMessage) {
 	// Get the current date and time
-	var currentTime = new Date();
+	var currentTime = new Date() + 2 * 60 * 60 * 1000; //added 2 hours to get CEST
 	var currentMonth = currentTime.getUTCMonth() + 1;
 	var currentDate = currentTime.getUTCDate();
 	var currentHour = currentTime.getUTCHours();
