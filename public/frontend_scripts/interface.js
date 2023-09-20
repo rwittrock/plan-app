@@ -11,7 +11,7 @@ function checkTimeAndRedirect() {
   var currentMinute = currentTime.getMinutes();
 
   // Check if the current hour is 20 or later
-  var stopHour = 20;
+  var stopHour = 16;
   var stopMinute = 0;
   if(currentHour >= stopHour){
     if(currentMinute >= stopMinute) {
@@ -77,8 +77,11 @@ function getQuestion() {
           alert("Korrekt!");
           //get new question
           window.location.reload();
-    } else { 
+    } else if (xhr.responseText == "tooLate"){ 
       //if answer is incorrect
       //alert incorrect
-      alert("Forkert! Prøv igen");
-  }}};
+      alert("Tiden er gået.");}
+      else {
+        alert ("Forkert!")
+      }
+  }};
