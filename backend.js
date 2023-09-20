@@ -643,12 +643,16 @@ app.post('/submitanswer', function(request, response) {
 
 function writeToLog(logMessage) {
 	// Get the current date and time
-	var currentTime = new Date() + 2 * 60 * 60 * 1000; //added 2 hours to get CEST
-	var currentMonth = currentTime.getMonth() + 1;
-	var currentDate = currentTime.getDate();
-	var currentHour = currentTime.getHours();
-	var currentMinute = currentTime.getMinutes();
-	var currentSecond = currentTime.getSeconds();
+	var currentTime = new Date();
+
+	//added 2 hours to get CEST
+	currentTime.setHours(currentTime.getHours()+2);
+
+	var currentMonth = currentTime.getUTCMonth() + 1;
+	var currentDate = currentTime.getUTCDate();
+	var currentHour = currentTime.getUTCHours();
+	var currentMinute = currentTime.getUTCMinutes();
+	var currentSecond = currentTime.getUTCSeconds();
 	fs.appendFileSync('log.txt',"Date: " + currentDate + "/" + currentMonth + ", Time: " + currentHour +":"+currentMinute+":"+currentSecond+", Message: " + logMessage + '\n');
 }
 
