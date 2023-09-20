@@ -644,11 +644,12 @@ app.post('/submitanswer', function(request, response) {
 function writeToLog(logMessage) {
 	// Get the current date and time
 	var currentTime = new Date();
+	var currentMonth = currentTime.getMonth() + 1;
 	var currentDate = currentTime.getDate();
 	var currentHour = currentTime.getHours();
 	var currentMinute = currentTime.getMinutes();
 	var currentSecond = currentTime.getSeconds();
-	fs.appendFileSync('log.txt',"Date: " + currentDate + ", Time: " + currentHour +":"+currentMinute+":"+currentSecond+", Message: " + logMessage + '\n');
+	fs.appendFileSync('log.txt',"Date: " + currentDate + "/" + currentMonth + ", Time: " + currentHour +":"+currentMinute+":"+currentSecond+", Message: " + logMessage + '\n');
 }
 
 app.listen(3000, () => {console.log('Server started on port 3000');});
