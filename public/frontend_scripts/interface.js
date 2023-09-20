@@ -1,6 +1,6 @@
 window.addEventListener('DOMContentLoaded', function () {
   checkTimeAndRedirect(); // Check initially
-  setInterval(checkTimeAndRedirect, 30000); // Check every minute (adjust as needed)
+  setInterval(checkTimeAndRedirect, 30000); // Check every 30 sec (adjust as needed)
   getQuestion();
 });
 
@@ -11,7 +11,7 @@ function checkTimeAndRedirect() {
   var currentMinute = currentTime.getMinutes();
 
   // Check if the current hour is 20 or later
-  if (false) {
+  if (currentHour >= 20) {
     // Redirect to the specified page
   window.location.href = "http://138.2.151.211:3000/nomoretime";
   } 
