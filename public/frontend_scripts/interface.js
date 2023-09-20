@@ -12,7 +12,7 @@ function checkTimeAndRedirect() {
 
   // Check if the current hour is 20 or later
   var stopHour = 16;
-  var stopMinute = 0;
+  var stopMinute = 34;
   if(currentHour >= stopHour){
     if(currentMinute >= stopMinute) {
     window.location.href = "http://138.2.151.211:3000/nomoretime";
